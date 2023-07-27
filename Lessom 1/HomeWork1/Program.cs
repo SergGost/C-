@@ -68,16 +68,16 @@
 // 8 -> 2, 4, 6, 8
 
 
-Console.Write("Введите N: ");
-int N = int.Parse(Console.ReadLine()!);
+// Console.Write("Введите N: ");
+// int N = int.Parse(Console.ReadLine()!);
 
-int i = 1;
-while(i < N)
-{
-    if(i % 2 == 0 )
-    {
-        Console.Write($"{i} ");
-    }
-    i++;
-}
-Console.WriteLine();
+// int i = 1;
+// while(i < N)
+// {
+//     if(i % 2 == 0 )
+//     {
+//         Console.Write($"{i} ");
+//     }
+//     i++;
+// }
+// Console.WriteLine();
