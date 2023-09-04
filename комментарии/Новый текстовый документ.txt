@@ -1,0 +1,147 @@
+Alexander Dyadyk 21:01
++
+
+Sansacar  кому  Все 21:01
++
+
+Софья Главацкая  кому  Все 21:10
+//Напишите программу, которая будет принимать на вход 
+//число и возвращать сумму его цифр.
+
+Console.WriteLine("Введите число: ");
+int number = int.Parse(Console.ReadLine()!);
+
+Console.WriteLine($"Сумма цифр в числе {number} - {SumNumbers(number)}");
+
+int SumNumbers(int numbers){
+    if(numbers == 0) return 0;
+    return (numbers % 10 + SumNumbers(numbers / 10));
+}
+**Задача 1:** Задайте значение N. Напишите программу, которая выведет все натуральные числа в промежутке от 1 до N.
+
+N = 5 -> "1, 2, 3, 4, 5"
+
+N = 6 -> "1, 2, 3, 4, 5, 6"
+
+Евгений Медведев  кому  Все 21:12
+здравствуйте
+
+Sansacar  кому  Все 21:18
+// **Задача 1:** Задайте значение N. Напишите программу, которая выведет все натуральные числа в промежутке от 1 до N.
+// N = 5 -> "1, 2, 3, 4, 5"
+// N = 6 -> "1, 2, 3, 4, 5, 6"
+
+Console.WriteLine("Введите число: ");
+int omega = int.Parse(Console.ReadLine()!);
+Console.WriteLine(Answer(1, omega));
+
+//method
+string Answer(int alpha, int numbers){
+    if(alpha == numbers) return alpha.ToString();
+    return (alpha +", "+ Answer(alpha + 1, numbers));
+}
+
+Софья Главацкая  кому  Все 21:18
+**Задача 2:** Задайте значения M и N. Напишите программу, которая выведет все натуральные числа в промежутке от M до N.
+
+M = 1; N = 5. -> "1, 2, 3, 4, 5"
+M = 4; N = 8. -> "4, 5, 6, 7, 8"
+
+Владислав Липкин  кому  Все 21:25
+// **Задача 2:** Задайте значения M и N. Напишите программу, которая выведет все натуральные числа в промежутке от M до N.
+
+// M = 1; N = 5. -> "1, 2, 3, 4, 5"
+// M = 4; N = 8. -> "4, 5, 6, 7, 8"
+
+
+Console.WriteLine("Введите число: ");
+int m = int.Parse(Console.ReadLine()!);
+
+Console.WriteLine("Введите число: ");
+int n = int.Parse(Console.ReadLine()!);
+
+Console.WriteLine(PrintNumbers(m, n));
+
+string PrintNumbers(int m, int n){
+    if(m == n) return m.ToString();
+    return (m + ", " + PrintNumbers(m + 1, n));
+}
+
+Софья Главацкая  кому  Все 21:25
+**Задача 3:** Напишите программу, которая на вход принимает два числа A и B, и возводит число А в целую степень B с помощью рекурсии.
+
+A = 3; B = 5 -> 243 (3⁵)
+
+A = 2; B = 3 -> 8
+
+Дмитрий Быкадоров  кому  Все 21:32
+// **Задача 3:** Напишите программу, которая на вход принимает два числа A и B, и возводит число А в целую степень B с помощью рекурсии.
+
+// A = 3; B = 5 -> 243 (3⁵)
+
+// A = 2; B = 3 -> 8
+
+Console.WriteLine("Введите число: ");
+int number = int.Parse(Console.ReadLine());
+
+Console.WriteLine("Введите степень: ");
+int range = int.Parse(Console.ReadLine());
+
+Console.WriteLine($"{Pow(number, range)}");
+
+int Pow(int number, int range){
+    if(range == 0) return 1;
+    if(range == 1) return number;
+    return (number * Pow(number, range - 1));
+}
+
+Софья Главацкая  кому  Все 21:42
+Write($"{inArray[i,j]:f1} ");
+
+Софья Главацкая  кому  Все 21:50
+int[,] GetMultiplicationMatrix(int[,] arrayA, int[,] arrayB)
+{
+    int[,] arrayC = new int[arrayA.GetLength(0), arrayB.GetLength(1)];
+    for (int i = 0; i < arrayA.GetLength(0); i++)
+    {
+        for (int j = 0; j < arrayB.GetLength(1); j++)
+        {
+            for (int k = 0; k < arrayA.GetLength(1); k++)
+            {
+                arrayC[i, j] += arrayA[i, k] * arrayB[k, j];
+            }
+        }
+    }
+    return arrayC;
+}
+
+Софья Главацкая 22:09
+Console.Write("Введите размерность массива, который будем заполнять: ");
+int n = int.Parse(Console.ReadLine()!);
+
+int[,] array = new int[n, n];
+int temp = 1;
+int i = 0;
+int j = 0;
+while (temp <= n * n)
+{
+    array[i,j] = temp;
+    if (i <= j + 1 && i + j < n - 1)
+        ++j;
+    else if (i < j && i + j >= n - 1)
+        ++i;
+    else if (i >= j && i + j > n - 1)
+        --j;
+    else
+        --i;
+    ++temp;
+}
+for (int c = 0; c < array.GetLength(0); c++)
+{
+    for (int d = 0; d < array.GetLength(1); d++)
+    {
+        Console.Write( $"{array[c,d]:d3} ");
+    }
+    Console.WriteLine();
+}
+Console.WriteLine();
